@@ -1,0 +1,21 @@
+{
+  "name": "csv-node",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Mannuel Ferreira <mannuel.ferreira@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^15.0.1",
+    "concurrently": "^6.0.2",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "snowpack": "^3.3.7"
+  }
+}
