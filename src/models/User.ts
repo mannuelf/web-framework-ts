@@ -1,6 +1,6 @@
 import { Eventing } from './Eventing';
 
-interface IUserProps {
+export interface IUserProps {
   id?: number;
   name?: string;
   age?: number;
