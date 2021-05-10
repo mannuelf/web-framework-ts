@@ -1,4 +1,6 @@
 import { Eventing } from './Eventing';
+import { Sync } from './Sync';
+import { rootUrl } from '../constants';
 
 export interface IUserProps {
   id?: number;
@@ -8,6 +10,7 @@ export interface IUserProps {
 
 export class User {
   public events: Eventing = new Eventing();
+  public sync: Sync<IUserProps> = new Sync<IUserProps>(rootUrl);
 
   constructor(private data: IUserProps) {}
 
