@@ -3,6 +3,7 @@ import { Sync } from './Sync';
 import { rootUrl } from '../constants';
 import { IUserProps } from '../global';
 import { Attributes } from './Attributes';
+import { AxiosResponse } from 'axios';
 
 export class User {
   public events: Eventing = new Eventing();
@@ -29,5 +30,17 @@ export class User {
   set(update: IUserProps): void {
     this.attributes.set(update);
     this.events.trigger('change');
+  }
+
+  fetch(): void {
+    const id = this.attributes.get('id');
+
+    if (typeof id !== 'number') {
+      throw new Error('Cannot fetch without and ID');
+    }
+
+    this.sync.fetch(id).then((response: AxiosResponse) => {
+      this.set(response.data);
+    });
   }
 }
