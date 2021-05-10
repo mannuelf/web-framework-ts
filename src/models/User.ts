@@ -12,4 +12,17 @@ export class User {
   constructor(attrs: IUserProps) {
     this.attributes = new Attributes<IUserProps>(attrs);
   }
+
+  // Delegation: get a referance to methods on the other modules (classes)
+  get on() {
+    return this.events.on;
+  }
+
+  get trigger() {
+    return this.events.trigger;
+  }
+
+  get get() {
+    return this.attributes.get;
+  }
 }
