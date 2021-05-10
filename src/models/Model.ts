@@ -1,4 +1,5 @@
 import { AxiosPromise, AxiosResponse } from 'axios';
+import { IHasId } from '../global';
 
 interface ModelAttributes<T> {
   set(value: T): void;
@@ -14,10 +15,6 @@ interface Sync<T> {
 interface Events {
   on(eventName: string, callback: () => void): void;
   trigger(eventName: string): void;
-}
-
-interface IHasId {
-  id?: number;
 }
 
 export class Model<T extends IHasId> {

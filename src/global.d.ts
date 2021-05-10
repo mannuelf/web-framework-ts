@@ -3,3 +3,7 @@ export interface IUserProps {
   name?: string;
   age?: number;
 }
+
+export interface IHasId {
+  id?: number;
+}

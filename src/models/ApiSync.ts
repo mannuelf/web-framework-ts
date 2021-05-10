@@ -1,8 +1,5 @@
 import axios, { AxiosPromise } from 'axios';
-
-interface IHasId {
-  id?: number;
-}
+import {IHasId} from '../global';
 
 export class ApiSync<T extends IHasId> {
   constructor(public rootUrl: string) {}
