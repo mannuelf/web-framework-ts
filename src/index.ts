@@ -3,10 +3,7 @@ import { IUserProps } from './global';
 import { Collection } from './models/Collection';
 import { User } from './models/User';
 
-const collection = new Collection<User, IUserProps>(
-  rootUrl,
-  (json: IUserProps) => User.buildUser(json)
-);
+const collection = User.buildUserCollection();
 
 collection.on('change', () => {
   console.log(collection);
