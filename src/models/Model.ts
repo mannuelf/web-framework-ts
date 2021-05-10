@@ -16,18 +16,19 @@ interface Events {
   trigger(eventName: string): void;
 }
 
-interface IhasId {
+interface IHasId {
   id?: number;
 }
 
-export class Model<T extends IhasId> {
+export class Model<T extends IHasId> {
   constructor(
-    private attributes, ModelAttributes<T>,
+    private attributes: ModelAttributes<T>,
     private events: Events,
     private sync: Sync<T>
   ) {}
 
   // Delegation: get a referance to methods on the other modules (classes)
+  /*
   get on() {
     return this.events.on;
   }
@@ -39,6 +40,15 @@ export class Model<T extends IhasId> {
   get get() {
     return this.attributes.get;
   }
+
+  set(update: T): void {
+    this.attributes.set(update);
+    this.events.trigger('change');
+  }
+ */
+  on = this.events.on;
+  trigger = this.events.trigger;
+  get = this.attributes.get;
 
   set(update: T): void {
     this.attributes.set(update);
