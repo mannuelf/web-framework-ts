@@ -1,6 +1,8 @@
 import { View } from './View';
 import { User } from '../models/User';
 import { IUserProps } from '../global';
+import { UserForm } from './UserForm';
+import { UserShow } from './UserShow';
 
 export class UserEdit extends View<User, IUserProps> {
   regionsMap(): { [key: string]: string } {
@@ -8,6 +10,12 @@ export class UserEdit extends View<User, IUserProps> {
       userShow: '.user-show',
       userForm: '.user-form',
     };
+  }
+
+  onRender(): void {
+    // do nesting
+    new UserShow(this.regions.userShow, this.model).render();
+    new UserForm(this.regions.userForm, this.model).render();
   }
 
   template(): string {
