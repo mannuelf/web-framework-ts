@@ -1,8 +1,8 @@
 import { Collection } from '../models/Collection';
 
 export abstract class CollectionView<T, K> {
-  // T: generic types, can be anything
-  // K: generic props, can be anything
+  // T: generic types, represents the Model can be anything
+  // K: generic props, represents the Properties the model will have, can be anything
   constructor(public parent: Element, public collection: Collection<T, K>) {}
 
   abstract renderItem(model: T, itemParent: Element): void {}
