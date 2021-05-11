@@ -1,16 +1,7 @@
 import { User } from '../models/User';
+import { View } from '../views/View';
 
-export class UserForm {
-  constructor(public parent: Element, public model: User) {
-    this.bindModel();
-  }
-
-  bindModel = (): void => {
-    this.model.on('change', () => {
-      this.render();
-    });
-  };
-
+export class UserForm extends View {
   eventsMap(): { [key: string]: () => void } {
     return {
       'click:.set-name': this.onSetNameClick,
