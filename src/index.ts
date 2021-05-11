@@ -14,3 +14,5 @@ users.on('change', () => {
     new UserList(root, users).render();
   }
 });
+
+users.fetch();
