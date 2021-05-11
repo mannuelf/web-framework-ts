@@ -13,6 +13,7 @@ export class UserForm {
 
   eventsMap(): { [key: string]: () => void } {
     return {
+      'click:.set-name': this.onSetNameClick,
       'click:.set-age': this.onSetAgeClick,
     };
   }
@@ -20,6 +21,12 @@ export class UserForm {
   onButtonClick(): void {
     console.log('Button Clicked');
   }
+
+  onSetNameClick = (): void => {
+    const input = this.parent.querySelector('input');
+    const name = input.value;
+    this.model.set({ name });
+  };
 
   onSetAgeClick = (): void => {
     // bind the value of this to this class or object using arrow function.
@@ -34,7 +41,7 @@ export class UserForm {
         <div>User name: ${this.model.get('name')}</div>
         <div>User age: ${this.model.get('age')}</div>
         <input />
-        <button class="button set-main">Click me</button>
+        <button class="button set-name">Change name</button>
         <button class="button set-age">Set random age</button>
       </div>
     `;
