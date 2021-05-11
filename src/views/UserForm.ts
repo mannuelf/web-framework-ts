@@ -1,7 +1,8 @@
+import { IUserProps } from '../global';
 import { User } from '../models/User';
 import { View } from '../views/View';
 
-export class UserForm extends View {
+export class UserForm extends View<User, IUserProps> {
   eventsMap(): { [key: string]: () => void } {
     return {
       'click:.set-name': this.onSetNameClick,
