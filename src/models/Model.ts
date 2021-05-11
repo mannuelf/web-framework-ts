@@ -68,6 +68,7 @@ export class Model<T extends IHasId> {
     this.sync
       .save(this.attributes.getAll())
       .then((response: AxiosResponse) => {
+        console.log('respsonse', response);
         this.trigger('save');
       })
       .catch(() => {
