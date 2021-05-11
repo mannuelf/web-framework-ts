@@ -5,11 +5,11 @@ export class UserForm {
     this.bindModel();
   }
 
-  bindModel = ():void {
+  bindModel = (): void => {
     this.model.on('change', () => {
       this.render();
     });
-  }
+  };
 
   eventsMap(): { [key: string]: () => void } {
     return {
