@@ -1,8 +1,8 @@
 import axios, { AxiosPromise } from 'axios';
-import {IHasId} from '../global';
+import { IHasId } from '../global';
 
 export class ApiSync<T extends IHasId> {
-  constructor(public rootUrl: string) {}
+  constructor(public rootUrl: string) { }
 
   fetch(id: number): AxiosPromise {
     return axios.get(`${this.rootUrl}/${id}`);

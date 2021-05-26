@@ -24,7 +24,7 @@ export class Model<T extends IHasId> {
     private sync: Sync<T>
   ) {}
 
-  // Delegation: get a referance to methods on the other modules (classes)
+  // Delegation: get a reference to methods on the other modules (classes)
   /*
   get on() {
     return this.events.on;
@@ -68,7 +68,6 @@ export class Model<T extends IHasId> {
     this.sync
       .save(this.attributes.getAll())
       .then((response: AxiosResponse) => {
-        console.log('respsonse', response);
         this.trigger('save');
       })
       .catch(() => {
