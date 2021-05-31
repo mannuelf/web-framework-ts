@@ -2,7 +2,7 @@
   "name": "web-framework-ts",
   "scripts": {
     "start:db": "json-server -w db.json",
-    "start:run": "parcel *.html",
+    "start:run": "parcel src/*.html",
     "start": "concurrently npm:start:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
